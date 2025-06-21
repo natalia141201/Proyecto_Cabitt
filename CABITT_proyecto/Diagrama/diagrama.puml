@@ -1,0 +1,43 @@
+@startuml
+class Personaje {
+    - posicion: Vector2f
+    - vida: int
+    + mover(dx, dy)
+    + actualizar()
+    + dibujar(window)
+    + restarVida()
+    + obtenerVida(): int
+    + getBounds(): FloatRect
+}
+
+class Zanahorias {
+    - posicion: Vector2f
+    + mover(dx, dy)
+    + dibujar(window)
+    + setPosition(pos)
+    + getPosition(): Vector2f
+    + getBounds(): FloatRect
+}
+
+class Calcetin {
+    - posicion: Vector2f
+    + mover(dx, dy)
+    + dibujar(window)
+    + obtenerposicion(pos)
+    + getPosition(): Vector2f
+    + getBounds(): FloatRect
+}
+
+class Cabitt {
+    - ventana: RenderWindow
+    - zanahoriasVec: vector<Zanahorias>
+    - calcetinesVec: vector<Calcetin>
+    - conejo: Personaje
+    - puntaje: int
+    - estado: EstadoJuego
+}
+
+Cabitt "1" o-- "muchos" Zanahorias
+Cabitt "1" o-- "muchos" Calcetin
+Cabitt "1" o-- "1" Personaje
+@enduml
